@@ -1,0 +1,46 @@
+{
+  "name": "image-processing-api",
+  "version": "1.0.0",
+  "description": "'small app that takes an image and resize it'",
+  "main": "index.js",
+  "repository": "https://github.com/abdellatif-elsheikh/image-processing-api.git",
+  "author": "<elshikh532@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node build/index.js",
+    "dev": "nodemon src/index.ts",
+    "format": "prettier --write src/**/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "fix": "eslint src/**/*.ts --fix",
+    "test": "npm run build && jasmine"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.0.0",
+    "@types/morgan": "^1.9.3",
+    "@types/sharp": "^0.30.0",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.0",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "express-validator": "^6.14.0",
+    "fs-extra": "^10.0.1",
+    "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
+    "sharp": "^0.30.3"
+  }
+}

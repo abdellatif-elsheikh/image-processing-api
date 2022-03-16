@@ -1,0 +1,11 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "printWidth": 90,
+  "tabWidth": 2,
+  "cursorOffset": -1,
+  "useTabs": true
+}
