@@ -3,9 +3,37 @@ import app from '../index';
 
 const request = supertest(app);
 
-describe('test basic endpoint server', () => {
-	it('Get the main endpoint', async () => {
-		const response = await request.get('/');
-		expect(response.status).toBe(200);
+describe('test all endpoints and routs', () => {
+	describe('test basic endpoint server', () => {
+		it('Get the main endpoint', async () => {
+			const response = await request.get('/');
+			expect(response.status).toBe(200);
+		});
+	});
+
+	describe('test the image endpoint', () => {
+		it('should get the main image endpoint (/api/image)', async () => {
+			const response = await request.get('/api/image');
+			expect(response.status).toBe(200);
+		});
+		it('should return status 200 (/api/image?image_name=snow)', async () => {
+			const response = await request.get('/api/image?image_name=snow');
+			expect(response.status).toBe(200);
+		});
+		it('should return status 200 (/api/image?image_name=snow&width=200&height=200)', async () => {
+			const response = await request.get(
+				'/api/image?image_name=snow&width=200&height=200'
+			);
+			expect(response.status).toBe(200);
+		});
+	});
+
+	describe('test invalid dimensions value', () => {
+		it('should return status 200 (/api/image?image_name=snow&width=0&height=-200)', async () => {
+			const response = await request.get(
+				'/api/image?image_name=snow&width=0&height=-200'
+			);
+			expect(response.status).toBe(200);
+		});
 	});
 });

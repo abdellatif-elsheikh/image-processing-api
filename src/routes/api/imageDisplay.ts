@@ -24,7 +24,7 @@ image.get('/', async (req: express.Request, res: express.Response) => {
 				await createThumbnail.resize(image, +width, +height);
 				res.sendFile(path.resolve(`images/thumbnails/${image}_${width}_${height}.jpg`));
 			} else {
-				res.send('please type a valid width and height bigger than 0');
+				res.send(['please type a valid width and height bigger than 0']);
 			}
 		} else {
 			res.sendFile(path.resolve(`images/main/${image}.jpg`));
