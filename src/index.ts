@@ -3,10 +3,11 @@ import router from './routes';
 import middlewares from './middlewares';
 import path from 'path';
 import fse from 'fs-extra';
+import validateImage from './imageHandling/validateImage';
 
 // create app instance
 const app = express();
-const port = 5000;
+const port = 8000;
 
 // use middleWares
 app.use(middlewares.helmetInstance, middlewares.morganInstance, middlewares.limiter);
