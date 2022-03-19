@@ -1,7 +1,4 @@
 import createThumbnail from '../../imageHandling/createThumbnial';
-import supertest from 'supertest';
-
-const request = supertest(createThumbnail.resize);
 
 describe('test create thumbnail file', () => {
 	it('test to see if resizing image process works as expected or not', async () => {
