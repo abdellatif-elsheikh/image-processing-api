@@ -2,8 +2,6 @@ import express from 'express';
 import router from './routes';
 import middlewares from './middlewares';
 import path from 'path';
-import fse from 'fs-extra';
-import validateImage from './imageHandling/validateImage';
 
 // create app instance
 const app = express();
@@ -15,11 +13,12 @@ app.use(middlewares.helmetInstance, middlewares.morganInstance, middlewares.limi
 app.use('/api', router);
 
 // create the main front end route
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.listen(port, () => {
+	// eslint-disable-next-line no-console
 	console.log(
 		`please open the flowing link to view the project http://localhost/${port}`
 	);
