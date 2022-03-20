@@ -14,13 +14,24 @@ class imageController {
 			width as unknown as number,
 			height as unknown as number
 		);
+		const isThumbExist = validateImage.isThumbImageExist(
+			`images/thumbnails/${image}_${width}_${height}.jpg`
+		);
 
 		if (isImageExist) {
 			if (width && height) {
 				if (areDimensionsValid) {
-					image as unknown as number;
-					await createThumbnail.resize(image, +width, +height);
-					res.sendFile(path.resolve(`images/thumbnails/${image}_${width}_${height}.jpg`));
+					if (isThumbExist) {
+						res.sendFile(
+							path.resolve(`images/thumbnails/${image}_${width}_${height}.jpg`)
+						);
+					} else {
+						image as unknown as number;
+						await createThumbnail.resize(image, +width, +height);
+						res.sendFile(
+							path.resolve(`images/thumbnails/${image}_${width}_${height}.jpg`)
+						);
+					}
 				} else {
 					res.send('please type a valid width and height bigger than 0');
 				}
